@@ -1,0 +1,42 @@
+'@context':
+  cim: https://cim.ucaiug.io/ns#
+  dcterms: http://purl.org/dc/terms/
+  owl: http://www.w3.org/2002/07/owl#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  sh: http://www.w3.org/ns/shacl#
+  skos: http://www.w3.org/2004/02/skos/core#
+  # obj-reg: https://modellen.netbeheernederland.nl/object-register#BaseVoltageShape
+  sh:targetClass:
+    '@type': '@id'
+  sh:in:
+    '@container': '@list'
+    '@type': '@id'
+  shapes:
+    '@id': dcterms:hasPart
+    '@container': '@id'
+'@id': https://modellen.netbeheernederland.nl/object-register/base-voltage
+'@type': [owl:Ontology, sh:ShapesGraph]
+shapes:
+  https://modellen.netbeheernederland.nl/object-register#BaseVoltageShape:
+    '@type': sh:NodeShape
+    sh:targetClass: cim:BaseVoltage
+    sh:in:
+      - urn:uuid:98b04fac-0fe4-4e07-b384-3dfee6a6b79c
+      - urn:uuid:b7482b2f-bcb8-46e9-99b1-e0cd09f3c205
+      - urn:uuid:a8d1b6b0-2ca4-4cbe-baa8-deaef08488fc
+      - urn:uuid:b6140325-2576-4bd6-8da4-1238c2328bf2
+      - urn:uuid:8b7d8dbc-53ad-445a-b557-32633ecf1aa9
+      - urn:uuid:45b9413e-a116-4952-8cf8-aeb4b2e53348
+      - urn:uuid:85712eb4-804b-49f8-9fab-d94ee29152ef
+      - urn:uuid:4ace87c9-16c7-4097-914f-d4551d7d8cd5
+      - urn:uuid:1cefd53a-79bd-4ad4-aa9a-5a4ad0191ce2
+      - urn:uuid:bbfd2dd8-005d-4c26-ab0d-285117d0309c
+      - urn:uuid:d5445f84-09ac-4647-b6b2-ed81cc5ab76b
+      - urn:uuid:b2a3e748-1772-409d-a61f-1d6da09564c9
+      - urn:uuid:c6dd6dc7-d8b0-4beb-b78d-9e472b038ffc
+      - urn:uuid:9289ba01-8394-4a4e-9346-ee82706babd1
+      - urn:uuid:1d57ef25-73e5-c940-de64-61253ce02e87
+      - urn:uuid:b8e17237e0ca4fca9e4e285b80ab30d0
+      - urn:uuid:e50ca4bd591d4c30bd6eca3635f70516
+      - urn:uuid:7891a026ba2c42098556665efd13ba94
+      - urn:uuid:b88e6bde11264fea83355102cd4f182c
