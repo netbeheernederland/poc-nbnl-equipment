@@ -10,6 +10,59 @@
   role: http://www.w3.org/ns/dx/prof/role/
   sh: http://www.w3.org/ns/shacl#
   xsd: http://www.w3.org/2001/XMLSchema#
+  skos: http://www.w3.org/2004/02/skos/core#
+  foaf: http://xmlns.com/foaf/0.1/
+  v: http://www.w3.org/2006/vcard/ns#
+  description: dcterms:description
+  issued:
+    '@id': dcterms:issued
+    '@type': xsd:date
+  title: dcterms:title
+  landingPage:
+    '@id': dcat:landingPage
+    '@type': '@id'
+  contactPoint:
+    '@id': dcat:contactPoint
+    '@context':
+      fullName: v:fn
+      email: v:hasEmail
+  publisher:
+    '@id': dcterms:publisher
+    '@type': '@id'
+    '@context':
+      name: foaf:name
+  language: dcterms:language
+  type:
+    '@id': dcterms:type
+    '@type': '@id'
+    '@context':
+      '@base': https://ucaiug.io/prof-ap-cim/asset-type
+  status:
+    '@id': adms:status
+    '@type': '@id'
+    '@context':
+      '@base': https://ucaiug.io/prof-ap-cim/status
+  mediaType: dcterms:mediaType
+  downloadURL:
+    '@id': dcat:downloadURL
+    '@type': xsd:anyURI
+  accessURL: 
+    '@id': dcat:accessURL
+    '@type': xsd:anyURI
+  distribution:
+    '@id': dcat:distribution
+    '@type': '@id'
+    '@context':
+      representationTechnique: adms:representationTechnique
+  includedAsset:
+    '@id': adms:includedAsset
+    '@type': '@id'
+  constraint:
+    '@id': rdfs:member
+    '@container': '@type'
+  subClassOf:
+    '@id': rdfs:subClassOf
+    '@type': '@id'
   classes:
     '@container': '@id'
     '@id': dcterms:hasPart
@@ -73,4 +126,3 @@
   version:
     '@id': dcat:version
     '@type': xsd:string
-

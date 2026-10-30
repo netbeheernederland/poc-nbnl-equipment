@@ -4,6 +4,7 @@
   cim: https://cim.ucaiug.io/ns#
   nl: https://cim.ucaiug.io/ns/nl#
 '@id': https://modellen.netbeheernederland.nl/nbnl-equipment/3.0
+landingPage: https://modellen.netbeheernederland.nl/nbnl-equipment/3.0
 isVersionOf: https://modellen.netbeheernederland.nl/nbnl-equipment
 version: '3.0'
 '@type':
@@ -12,6 +13,40 @@ version: '3.0'
   - prof:Profile
   - sh:ShapesGraph
   - owl:Ontology
+title: NBNL Equipment Profile
+description: >-
+  CIM profile for modelling equipment.
+conformsTo:
+  - https://cim17.org
+issued: 2026-09-11
+contactPoint:
+  fullName: Bart Kleijngeld
+  email: bart.kleijngeld@alliander.com
+publisher:
+  name: Netbeheer Nederland
+language: EN  #TODO
+type: application-profile  # TODO: Use a nested context with `@vocab` to allow this.
+status: "#draft"
+distribution:
+  - title: Profile representation in RDF serialized as Turtle
+    representationTechnique: rdf
+    mediaType: text/turtle
+    downloadURL: https://ucaiug.io/prof-ap-cim/1.0/_attachments/prof-ap-cim.ttl
+  - title: Profile representation in HTML
+    representationTechnique: html
+    mediaType: text/html
+    accessURL: https://ucaiug.io/prof-ap-cim/1.0
+includedAsset:
+  - "@id": https://ucaiug.io/prof-ap-cim/1.0#json-schema
+    "@type": adms:AssetDistribution
+    title: Profile data model encoded as JSON schema
+    type: data-model
+    status: "#draft"
+    distribution:
+      - title: Profile representation in RDF serialized as Turtle
+        representationTechnique: json-schema
+        mediaType: application/json
+        downloadURL: https://ucaiug.io/prof-ap-cim/1.0/_attachments/prof-ap-cim.json_schema.json
 imports:
   - http://localhost:8000/nbnl-equipment.vocab.jsonld  # NOTE: Should be provided by data graph (or indirectly by some ontology)!
   - http://localhost:8000/remote/base-voltage.shacl.jsonld
