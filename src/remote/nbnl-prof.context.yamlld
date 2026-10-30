@@ -15,6 +15,7 @@
   foaf: http://xmlns.com/foaf/0.1/
   v: http://www.w3.org/2006/vcard/ns#
   description: dcterms:description
+  conformsTo: dcterms:conformsTo
   issued:
     '@id': dcterms:issued
     '@type': xsd:date
@@ -58,18 +59,19 @@
   includedAsset:
     '@id': adms:includedAsset
     '@type': '@id'
-  constraint:
-    '@id': rdfs:member
-    '@container': '@type'
-  subClassOf:
-    '@id': rdfs:subClassOf
-    '@type': '@id'
   classes:
+    '@container': '@id'
+    '@id': dcterms:hasPart
+  rules:
     '@container': '@id'
     '@id': dcterms:hasPart
   closed:
     '@type': xsd:boolean
   datatype:
+    '@type': '@id'
+  targetClass:
+    '@type': '@id'
+  severity:
     '@type': '@id'
   class:
     '@type': '@id'

@@ -4,7 +4,6 @@
   cim: https://cim.ucaiug.io/ns#
   nl: https://cim.ucaiug.io/ns/nl#
 '@id': https://modellen.netbeheernederland.nl/nbnl-equipment/3.0
-landingPage: https://modellen.netbeheernederland.nl/nbnl-equipment/3.0
 isVersionOf: https://modellen.netbeheernederland.nl/nbnl-equipment
 version: '3.0'
 '@type':
@@ -13,11 +12,16 @@ version: '3.0'
   - prof:Profile
   - sh:ShapesGraph
   - owl:Ontology
+imports:
+  - http://localhost:8000/nbnl-equipment.vocab.jsonld  # NOTE: Should be provided by data graph (or indirectly by some ontology)!
+  - http://localhost:8000/remote/base-voltage.shacl.jsonld
 title: NBNL Equipment Profile
 description: >-
   CIM profile for modelling equipment.
 conformsTo:
   - https://cim17.org
+  # - https://eu-dcat-ap?
+landingPage: https://modellen.netbeheernederland.nl/nbnl-equipment/3.0
 issued: 2026-09-11
 contactPoint:
   fullName: Bart Kleijngeld
@@ -26,31 +30,46 @@ publisher:
   name: Netbeheer Nederland
 language: EN  #TODO
 type: application-profile  # TODO: Use a nested context with `@vocab` to allow this.
-status: "#draft"
 distribution:
-  - title: Profile representation in RDF serialized as Turtle
-    representationTechnique: rdf
-    mediaType: text/turtle
-    downloadURL: https://ucaiug.io/prof-ap-cim/1.0/_attachments/prof-ap-cim.ttl
+  - title: Profile representation in RDF serialized as JSON-LD
+    representationTechnique: shacl
+    mediaType: application/ld+json
+    downloadURL: https://modellen.netbeheernederland.nl/nbnl-equipment/3.0/nbnl-equipment-3.0.prof.jsonld
+  - title: Profile representation in RDF serialized as YAML-LD
+    representationTechnique: shacl
+    mediaType: application/ld+yaml
+    downloadURL: https://modellen.netbeheernederland.nl/nbnl-equipment/3.0/nbnl-equipment-3.0.prof.yamlld
   - title: Profile representation in HTML
     representationTechnique: html
     mediaType: text/html
-    accessURL: https://ucaiug.io/prof-ap-cim/1.0
+    accessURL: https://modellen.netbeheernederland.nl/nbnl-equipment/3.0/index.html
 includedAsset:
-  - "@id": https://ucaiug.io/prof-ap-cim/1.0#json-schema
-    "@type": adms:AssetDistribution
-    title: Profile data model encoded as JSON schema
-    type: data-model
-    status: "#draft"
+  # - '@id': https://modellen.netbeheernederland.nl/nbnl-equipment/3.0  # TODO: Think whether this self-reference is necessary (especially since SHACL Profiling 1.2 prescribes this) or confusing.
+  #   type: constraints
+  - '@id': https://modellen.netbeheernederland.nl/nbnl-equipment/3.0#vocabulary
+    title: Profile vocabulary
+    type: vocabulary
     distribution:
-      - title: Profile representation in RDF serialized as Turtle
-        representationTechnique: json-schema
-        mediaType: application/json
-        downloadURL: https://ucaiug.io/prof-ap-cim/1.0/_attachments/prof-ap-cim.json_schema.json
-imports:
-  - http://localhost:8000/nbnl-equipment.vocab.jsonld  # NOTE: Should be provided by data graph (or indirectly by some ontology)!
-  - http://localhost:8000/remote/base-voltage.shacl.jsonld
-# TODO: Add includedAsset: profile vocabulary.
+      - title: Profile vocabulary representation in RDF serialized as JSON-LD
+        representationTechnique: rdfs
+        mediaType: application/ld+json
+        downloadURL: https://modellen.netbeheernederland.nl/nbnl-equipment/3.0/nbnl-equipment-3.0.rdfs.jsonld
+      - title: Profile vocabulary representation in RDF serialized as YAML-LD
+        representationTechnique: rdfs
+        mediaType: application/ld+yaml
+        downloadURL: https://modellen.netbeheernederland.nl/nbnl-equipment/3.0/nbnl-equipment-3.0.rdfs.yamlld
+  - '@id': https://modellen.netbeheernederland.nl/nbnl-equipment/3.0#ctx
+    title: Profile JSON-LD context
+    type: jsonld-context
+    distribution:
+      - title: Profile JSON-LD context file serialized as JSON-LD
+        representationTechnique: jsonld
+        mediaType: application/ld+json
+        downloadURL: https://modellen.netbeheernederland.nl/nbnl-equipment/3.0/nbnl-equipment-3.0.ctx.jsonld
+      - title: Profile JSON-LD context file serialized as YAML-LD
+        representationTechnique: jsonld
+        mediaType: application/ld+yaml
+        downloadURL: https://modellen.netbeheernederland.nl/nbnl-equipment/3.0/nbnl-equipment-3.0.ctx.yamlld
 classes:
   cim:IdentifiedObject:
     '@type': [rdfs:Class, sh:NodeShape]
@@ -352,3 +371,38 @@ enums:
     '@type': sh:NodeShape
     values:
       - nl:UpdateInfoKind.ATC
+rules:
+  ConductingEquipment-twoTerminalsShape:
+    '@type': sh:NodeShape
+    targetClass: cim:ConductingEquipment
+    description: Terminal-s of the two sides of a two-terminal ConductingEquipment (or any of its subclasses) shall not be connected to the same ConnectivityNode.
+    severity: sh:Violation
+    sparql:
+      # prefixes: https://cim.ucaiug.io/cimprof#prefixes
+      message: >-
+        Terminal-s of a two-terminal ConductingEquipment (or any of its subclasses) connect to the same ConnectivityNode.
+      select: >-
+        PREFIX cim: <https://cim.ucaiug.io/ns#>
+
+        SELECT $this ?value WHERE {
+          ?term1 cim:Terminal.ConductingEquipment $this .
+          ?term2 cim:Terminal.ConductingEquipment $this .
+
+          ?term1 cim:ACDCTerminal.sequenceNumber 1 .
+          ?term2 cim:ACDCTerminal.sequenceNumber 2 .
+
+          ?term1 cim:Terminal.ConnectivityNode ?cn1 .
+          ?term2 cim:Terminal.ConnectivityNode ?cn2 .
+          FILTER (?cn1 = ?cn2) .
+        }
+  triviallyWrong:
+    '@type': sh:NodeShape
+    targetClass: dcat:Dataset
+    sparql:
+      message: >-
+        Hello world!
+      select: >-
+        SELECT $this
+        WHERE {
+            BIND(true AS ?failure)
+        }
