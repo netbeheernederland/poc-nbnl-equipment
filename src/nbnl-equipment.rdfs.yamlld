@@ -19,7 +19,7 @@ version: '3.0'
   - adms:Asset
   - owl:Ontology
 imports:
-  - http://localhost:8000/cim17-vocabulary.rdfs.ttl
+  - http://localhost:8000/cim17.rdfs.ttl
 classes:
   nl:UpdateInfo:
     '@type': owl:Class

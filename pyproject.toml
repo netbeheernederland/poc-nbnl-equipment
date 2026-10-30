@@ -1,21 +1,19 @@
 [project]
-name = "poc-shacl-eq"
+name = "poc-nbnl-equipment"
 version = "0.1.0"
-description = "Add your description here"
+description = "Proof of concept of NBNL EQ profile represented in SHACL."
 readme = "README.md"
 authors = [
     { name = "Bart Kleijngeld", email = "bartkl@protonmail.com" }
 ]
 requires-python = ">=3.14"
 dependencies = [
-    "ipykernel>=7.4.0",
-    "pyoxigraph>=0.5.13",
-    "pyshacl[oxigraph]>=0.40.2",
+    "pyshacl>=0.40.2",
+    "pyyaml>=6.0.3",
+    "rdflib>=7.6.0",
 ]
 
-[project.scripts]
-poc-shacl-eq = "poc_shacl_eq:main"
-
-[build-system]
-requires = ["uv_build>=0.13.5,<0.14.0"]
-build-backend = "uv_build"
+[dependency-groups]
+dev = [
+    "ipykernel>=7.4.0",
+]

@@ -1,5 +1,5 @@
 '@context':
-  '@import': http://localhost:8000/nbnl.shacl.context.jsonld
+  '@import': http://localhost:8000/remote/nbnl-shacl.context.jsonld
   cim: https://cim.ucaiug.io/ns#
   nl: https://cim.ucaiug.io/ns/nl#
 '@id': https://modellen.netbeheernederland.nl/nbnl-equipment/3.0
@@ -11,8 +11,8 @@ version: '3.0'
   - sh:ShapesGraph
   - owl:Ontology
 imports:
-  - http://localhost:8000/nbnl-eq.vocab.jsonld  # NOTE: Should be provided by data graph (or indirectly by some ontology)!
-  - http://localhost:8000/base-voltage.shacl.jsonld
+  - http://localhost:8000/nbnl-equipment.vocab.jsonld  # NOTE: Should be provided by data graph (or indirectly by some ontology)!
+  - http://localhost:8000/remote/base-voltage.shacl.jsonld
 # TODO: Add includedAsset: profile vocabulary.
 classes:
   cim:IdentifiedObject:
