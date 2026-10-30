@@ -7,7 +7,7 @@ Profile source files can be found under `src/`. Under `src/remote` you can find 
 In order to run the notebook properly, make sure you:
 
 * Build and post-process the necessary artifacts, most notablt converting YAML-LD to JSON-LD. This can be done from the notebook.
-* Serve the built artifacts locally: `python -m http.server -d built`.
+* Serve the built artifacts locally: `python -m http.server -d build`.
 * Run the validation in the notebook.
 
 CAUTION: The test data is not checked into the VCS because of privacy legislation. You need to put your test data in `data/` and if necessary adjust the filepath references in the notebook to make sure it'll all work.
