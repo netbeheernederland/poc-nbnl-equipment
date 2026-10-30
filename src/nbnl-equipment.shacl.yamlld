@@ -1,5 +1,6 @@
 '@context':
-  '@import': http://localhost:8000/remote/nbnl-shacl.context.jsonld
+  '@version': 1.1
+  '@import': http://localhost:8000/remote/nbnl-prof.context.jsonld
   cim: https://cim.ucaiug.io/ns#
   nl: https://cim.ucaiug.io/ns/nl#
 '@id': https://modellen.netbeheernederland.nl/nbnl-equipment/3.0
@@ -8,6 +9,7 @@ version: '3.0'
 '@type':
   - dcat:Dataset
   - adms:Asset
+  - prof:Profile
   - sh:ShapesGraph
   - owl:Ontology
 imports:
