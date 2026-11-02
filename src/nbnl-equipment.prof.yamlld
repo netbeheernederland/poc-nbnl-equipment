@@ -2,19 +2,17 @@
   '@version': 1.1
   '@import': http://localhost:8000/remote/nbnl-prof.context.jsonld
   cim: https://cim.ucaiug.io/ns#
-  nl: https://cim.ucaiug.io/ns/nl#
 '@id': https://modellen.netbeheernederland.nl/nbnl-equipment/3.0
 isVersionOf: https://modellen.netbeheernederland.nl/nbnl-equipment
 version: '3.0'
 '@type':
-  - dcat:Dataset
-  - adms:Asset
   - prof:Profile
   - sh:ShapesGraph
   - owl:Ontology
 imports:
-  - http://localhost:8000/nbnl-equipment.vocab.jsonld  # NOTE: Should be provided by data graph (or indirectly by some ontology)!
-  - http://localhost:8000/remote/base-voltage.shacl.jsonld
+  - remote/nbnl-prof.owl.jsonld
+  - nbnl-equipment.rdfs.jsonld  # TODO: Should be provided by data graph (or indirectly by some ontology)!
+  - remote/base-voltage.shacl.jsonld
 title: NBNL Equipment Profile
 description: >-
   CIM profile for modelling equipment.
@@ -72,7 +70,6 @@ includedAsset:
         downloadURL: https://modellen.netbeheernederland.nl/nbnl-equipment/3.0/nbnl-equipment-3.0.ctx.yamlld
 classes:
   cim:IdentifiedObject:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:IdentifiedObject.description:
         datatype: xsd:string
@@ -88,7 +85,6 @@ classes:
         datatype: xsd:string
         maxCount: 1
   cim:Terminal:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:Terminal.ConductingEquipment:
         class: cim:ConductingEquipment
@@ -98,14 +94,12 @@ classes:
         class: cim:ConnectivityNode
         maxCount: 1
   cim:BaseVoltage:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:BaseVoltage.nominalVoltage:
         class: cim:Voltage
         minCount: 1
         maxCount: 1
   cim:ConnectivityNode:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:ConnectivityNode.BoundaryPoint:
         class: cim:BoundaryPoint
@@ -115,27 +109,23 @@ classes:
         minCount: 1
         maxCount: 1
   cim:Contingency:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:Contingency.mustStudy:
         datatype: xsd:boolean
         maxCount: 1
   cim:ContingencyElement:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:ContingencyElement.Contingency:
         class: cim:Contingency
         minCount: 1
         maxCount: 1
   cim:ContingencyEquipment:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:ContingencyEquipment.Equipment:
         class: cim:Equipment
         minCount: 1
         maxCount: 1
   cim:EquipmentLimitSeriesComponent:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:EquipmentLimitSeriesComponent.Equipment:
         class: cim:Equipment
@@ -149,7 +139,6 @@ classes:
         class: cim:Terminal
         maxCount: 1
   cim:OperationalLimit:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:OperationalLimit.LimitDependencyModel:
         class: cim:SeriesEquipmentDependentLimit
@@ -160,14 +149,12 @@ classes:
         datatype: xsd:boolean
         maxCount: 1
   cim:ActivePowerLimit:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:ActivePowerLimit.value:
         class: cim:ActivePower
         minCount: 1
         maxCount: 1
   cim:OperationalLimitSet:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:OperationalLimitSet.Equipment:
         class: cim:Equipment
@@ -176,12 +163,10 @@ classes:
         class: cim:Terminal
         maxCount: 1
   cim:PowerSystemResource:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:PowerSystemResource.ReportingGroup:
         class: cim:ReportingGroup
   cim:BoundaryPoint:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:BoundaryPoint.fromEndIsoCode:
         datatype: xsd:string
@@ -200,7 +185,6 @@ classes:
         minCount: 1
         maxCount: 1
   cim:Bay:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:Bay.VoltageLevel:
         class: cim:VoltageLevel
@@ -213,21 +197,18 @@ classes:
         class: cim:BusbarConfiguration
         maxCount: 1
   cim:Line:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:Line.Region:
         class: cim:SubGeographicalRegion
         minCount: 1
         maxCount: 1
   cim:Substation:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:Substation.Region:
         class: cim:SubGeographicalRegion
         minCount: 1
         maxCount: 1
   cim:VoltageLevel:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:VoltageLevel.BaseVoltage:
         # class: cim:BaseVoltage
@@ -239,7 +220,6 @@ classes:
         minCount: 1
         maxCount: 1
   cim:Equipment:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:Equipment.EquipmentContainer:
         class: cim:EquipmentContainer
@@ -248,19 +228,16 @@ classes:
         datatype: xsd:boolean
         maxCount: 1
   cim:Switch:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:Switch.normalOpen:
         datatype: xsd:boolean
         maxCount: 1
   cim:ReportingGroup:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:ReportingGroup.ReportingSuperGroup:
         class: cim:ReportingSuperGroup
         maxCount: 1
   cim:SubGeographicalRegion:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:SubGeographicalRegion.Region:
         class: cim:GeographicalRegion
@@ -270,7 +247,6 @@ classes:
         datatype: xsd:string
         maxCount: 1
   cim:TransformerEnd:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:TransformerEnd.endNumber:
         datatype: xsd:integer
@@ -280,14 +256,12 @@ classes:
         minCount: 1
         maxCount: 1
   cim:PowerTransformerEnd:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:PowerTransformerEnd.PowerTransformer:
         class: cim:PowerTransformer
         minCount: 1
         maxCount: 1
   cim:UsagePoint:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:UsagePoint.Equipments:
         class: cim:EnergyConsumer
@@ -296,7 +270,6 @@ classes:
         datatype: xsd:boolean
         maxCount: 1
   nl:UpdateInfo:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       nl:UpdateInfo.date:
         datatype: xsd:date
@@ -307,13 +280,11 @@ classes:
         minCount: 1
         maxCount: 1
   cim:ACLineSegment:
-    '@type': [rdfs:Class, sh:NodeShape]
     property:
       cim:ConductingEquipment.Terminals:
         minCount: 2
         maxCount: 2
   nl:CIMDatatype:
-    '@type': sh:NodeShape
     property:
       cim:ActivePower.multiplier:
         class: cim:UnitMultiplier
@@ -329,21 +300,18 @@ classes:
         maxCount: 1
 enums:
   cim:BreakerConfiguration:
-    '@type': sh:NodeShape
     values:
       - cim:BreakerConfiguration.breakerAndAHalf
       - cim:BreakerConfiguration.doubleBreaker
       - cim:BreakerConfiguration.noBreaker
       - cim:BreakerConfiguration.singleBreaker
   cim:BusbarConfiguration:
-    '@type': sh:NodeShape
     values:
       - cim:BusbarConfiguration.doubleBus
       - cim:BusbarConfiguration.mainWithTransfer
       - cim:BusbarConfiguration.ringBus
       - cim:BusbarConfiguration.singleBus
   cim:UnitMultiplier:
-    '@type': sh:NodeShape
     values:
       - cim:UnitMultiplier.G
       - cim:UnitMultiplier.h
@@ -353,7 +321,6 @@ enums:
       - cim:UnitMultiplier.micro
       - cim:UnitMultiplier.none
   cim:UnitSymbol:
-    '@type': sh:NodeShape
     values:
       - cim:UnitSymbol.A
       - cim:UnitSymbol.Ah
@@ -368,12 +335,10 @@ enums:
       - cim:UnitSymbol.Wb
       - cim:UnitSymbol.Wh
   nl:UpdateInfoKind:
-    '@type': sh:NodeShape
     values:
       - nl:UpdateInfoKind.ATC
 rules:
   ConductingEquipment-twoTerminalsShape:
-    '@type': sh:NodeShape
     targetClass: cim:ConductingEquipment
     description: Terminal-s of the two sides of a two-terminal ConductingEquipment (or any of its subclasses) shall not be connected to the same ConnectivityNode.
     severity: sh:Violation
@@ -396,7 +361,6 @@ rules:
           FILTER (?cn1 = ?cn2) .
         }
   triviallyWrong:
-    '@type': sh:NodeShape
     targetClass: dcat:Dataset
     sparql:
       message: >-

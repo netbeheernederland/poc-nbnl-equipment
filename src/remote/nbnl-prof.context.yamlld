@@ -10,6 +10,7 @@
   rdfs: http://www.w3.org/2000/01/rdf-schema#
   role: http://www.w3.org/ns/dx/prof/role/
   sh: http://www.w3.org/ns/shacl#
+  nl: https://cim.ucaiug.io/ns/nl#
   xsd: http://www.w3.org/2001/XMLSchema#
   skos: http://www.w3.org/2004/02/skos/core#
   foaf: http://xmlns.com/foaf/0.1/
@@ -61,10 +62,10 @@
     '@type': '@id'
   classes:
     '@container': '@id'
-    '@id': dcterms:hasPart
+    '@id': nl:hasClassShape
   rules:
     '@container': '@id'
-    '@id': dcterms:hasPart
+    '@id': nl:hasRuleShape
   closed:
     '@type': xsd:boolean
   datatype:
@@ -80,7 +81,7 @@
     '@type': xsd:string
   enums:
     '@container': '@id'
-    '@id': dcterms:hasPart
+    '@id': nl:hasEnumerationShape
     '@context':
       value:
         '@id': in

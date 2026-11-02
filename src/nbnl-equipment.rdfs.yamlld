@@ -11,7 +11,6 @@
   xsd: http://www.w3.org/2001/XMLSchema#
   cim: https://cim.ucaiug.io/ns#
   nl: https://cim.ucaiug.io/ns/nl#
-  concepts:
 '@id': https://modellen.netbeheernederland.nl/nbnl-equipment/3.0  # NOTE: Profile IRI is the same in every model.
 isVersionOf: https://modellen.netbeheernederland.nl/nbnl-equipment
 version: '3.0'
@@ -19,8 +18,8 @@ version: '3.0'
   - dcat:Dataset
   - adms:Asset
   - owl:Ontology
-imports:
-  - http://localhost:8000/cim17.rdfs.ttl
+owl:imports:
+  - http://localhost:8000/remote/cim17.rdfs.jsonld
 classes:
   nl:UpdateInfo:
     '@type': owl:Class
