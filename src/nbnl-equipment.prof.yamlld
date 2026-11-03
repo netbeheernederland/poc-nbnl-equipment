@@ -284,7 +284,7 @@ classes:
       cim:ConductingEquipment.Terminals:
         minCount: 2
         maxCount: 2
-  nl:CIMDatatype:
+  cim:ActivePower:
     property:
       cim:ActivePower.multiplier:
         class: cim:UnitMultiplier

@@ -1,0 +1,703 @@
+{
+    "@context": {
+        "@version": 1.1,
+        "@vocab": "http://www.w3.org/ns/shacl#",
+        "adms": "http://www.w3.org/ns/adms#",
+        "cim": "https://cim.ucaiug.io/ns#",
+        "dcat": "http://www.w3.org/ns/dcat#",
+        "dcterms": "http://purl.org/dc/terms/",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "prof": "http://www.w3.org/ns/dx/prof/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "role": "http://www.w3.org/ns/dx/prof/role/",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "nl": "https://cim.ucaiug.io/ns/nl#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "foaf": "http://xmlns.com/foaf/0.1/",
+        "v": "http://www.w3.org/2006/vcard/ns#",
+        "description": {
+            "@id": "dcterms:description",
+            "@type": "xsd:string"
+        },
+        "conformsTo": "dcterms:conformsTo",
+        "subClassOf": {
+            "@id": "rdfs:subClassOf",
+            "@type": "@id"
+        },
+        "issued": {
+            "@id": "dcterms:issued",
+            "@type": "xsd:date"
+        },
+        "title": {
+            "@id": "dcterms:title",
+            "@container": "@language"
+        },
+        "landingPage": {
+            "@id": "dcat:landingPage",
+            "@type": "@id"
+        },
+        "contactPoint": {
+            "@id": "dcat:contactPoint",
+            "@context": {
+                "fullName": "v:fn",
+                "email": "v:hasEmail"
+            }
+        },
+        "publisher": {
+            "@id": "dcterms:publisher"
+        },
+        "language": "dcterms:language",
+        "type": {
+            "@id": "dcterms:type",
+            "@type": "@id",
+            "@context": {
+                "@base": "https://ucaiug.io/prof-ap-cim/asset-type"
+            }
+        },
+        "status": {
+            "@id": "adms:status",
+            "@type": "@id",
+            "@context": {
+                "@base": "https://ucaiug.io/prof-ap-cim/status"
+            }
+        },
+        "mediaType": "dcterms:mediaType",
+        "downloadURL": {
+            "@id": "dcat:downloadURL",
+            "@type": "xsd:anyURI"
+        },
+        "accessURL": {
+            "@id": "dcat:accessURL",
+            "@type": "xsd:anyURI"
+        },
+        "distribution": {
+            "@id": "dcat:distribution",
+            "@type": "@id",
+            "@context": {
+                "representationTechnique": "adms:representationTechnique"
+            }
+        },
+        "includedAsset": {
+            "@id": "adms:includedAsset",
+            "@type": "@id"
+        },
+        "classes": {
+            "@container": "@id",
+            "@id": "nl:hasClassShape"
+        },
+        "rules": {
+            "@container": "@id",
+            "@id": "nl:hasRuleShape"
+        },
+        "closed": {
+            "@type": "xsd:boolean"
+        },
+        "datatype": {
+            "@type": "@id"
+        },
+        "targetClass": {
+            "@type": "@id"
+        },
+        "severity": {
+            "@type": "@id"
+        },
+        "class": {
+            "@type": "@id"
+        },
+        "enums": {
+            "@container": "@id",
+            "@id": "nl:hasEnumerationShape",
+            "@context": {
+                "value": {
+                    "@id": "in",
+                    "@container": "@list",
+                    "@type": "@id"
+                },
+                "name": {
+                    "@id": "sh:name",
+                    "@type": "xsd:string"
+                }
+            }
+        },
+        "in": {
+            "@container": "@list",
+            "@type": "@id"
+        },
+        "name": {
+            "@id": "rdfs:label"
+        },
+        "node": {
+            "@type": "@id"
+        },
+        "nodeKind": {
+            "@type": "@id"
+        },
+        "or": {
+            "@container": "@list",
+            "@type": "@id"
+        },
+        "path": {
+            "@type": "@id"
+        },
+        "property": {
+            "@container": "@index",
+            "@context": {
+                "description": {
+                    "@id": "sh:description",
+                    "@type": "xsd:string"
+                },
+                "name": {
+                    "@id": "sh:name",
+                    "@type": "xsd:string"
+                }
+            },
+            "@index": "path"
+        },
+        "seeAlso": {
+            "@id": "rdfs:seeAlso"
+        },
+        "isVersionOf": {
+            "@id": "dcterms:isVersionOf",
+            "@type": "@id"
+        },
+        "version": {
+            "@id": "dcat:version",
+            "@type": "xsd:string"
+        }
+    },
+    "classes": {
+        "cim:IdentifiedObject": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "property": {
+                "cim:IdentifiedObject.description": {
+                    "datatype": "xsd:string",
+                    "maxCount": 1
+                },
+                "nl:IdentifiedObject.europeanArticleNumberEAN": {
+                    "datatype": "xsd:string",
+                    "maxCount": 1
+                },
+                "cim:IdentifiedObject.mRID": {
+                    "datatype": "xsd:string",
+                    "minCount": 1,
+                    "maxCount": 1
+                },
+                "cim:IdentifiedObject.name": {
+                    "datatype": "xsd:string",
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:Terminal": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:ACDCTerminal",
+            "property": {
+                "cim:Terminal.ConductingEquipment": {
+                    "class": "cim:ConductingEquipment",
+                    "minCount": 1,
+                    "maxCount": 1
+                },
+                "cim:Terminal.ConnectivityNode": {
+                    "class": "cim:ConnectivityNode",
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:BaseVoltage": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:IdentifiedObject",
+            "property": {
+                "cim:BaseVoltage.nominalVoltage": {
+                    "class": "cim:Voltage",
+                    "minCount": 1,
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:ConnectivityNode": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:IdentifiedObject",
+            "property": {
+                "cim:ConnectivityNode.BoundaryPoint": {
+                    "class": "cim:BoundaryPoint",
+                    "maxCount": 1
+                },
+                "cim:ConnectivityNode.ConnectivityNodeContainer": {
+                    "class": "cim:ConnectivityNodeContainer",
+                    "minCount": 1,
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:Contingency": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:IdentifiedObject",
+            "property": {
+                "cim:Contingency.mustStudy": {
+                    "datatype": "xsd:boolean",
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:ContingencyElement": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:IdentifiedObject",
+            "property": {
+                "cim:ContingencyElement.Contingency": {
+                    "class": "cim:Contingency",
+                    "minCount": 1,
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:ContingencyEquipment": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:ContingencyElement",
+            "property": {
+                "cim:ContingencyEquipment.Equipment": {
+                    "class": "cim:Equipment",
+                    "minCount": 1,
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:EquipmentLimitSeriesComponent": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:IdentifiedObject",
+            "property": {
+                "cim:EquipmentLimitSeriesComponent.Equipment": {
+                    "class": "cim:Equipment",
+                    "minCount": 1,
+                    "maxCount": 1
+                },
+                "cim:EquipmentLimitSeriesComponent.SeriesEquipmentDependentLimit": {
+                    "class": "cim:SeriesEquipmentDependentLimit",
+                    "minCount": 1,
+                    "maxCount": 1
+                },
+                "cim:EquipmentLimitSeriesComponent.Terminal": {
+                    "class": "cim:Terminal",
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:OperationalLimit": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:IdentifiedObject",
+            "property": {
+                "cim:OperationalLimit.LimitDependencyModel": {
+                    "class": "cim:SeriesEquipmentDependentLimit"
+                },
+                "cim:OperationalLimit.OperationalLimitSet": {
+                    "class": "cim:OperationalLimitSet",
+                    "maxCount": 1
+                },
+                "cim:OperationalLimit.positiveFlowIn": {
+                    "datatype": "xsd:boolean",
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:ActivePowerLimit": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:OperationalLimit",
+            "property": {
+                "cim:ActivePowerLimit.value": {
+                    "class": "cim:ActivePower",
+                    "minCount": 1,
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:OperationalLimitSet": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:IdentifiedObject",
+            "property": {
+                "cim:OperationalLimitSet.Equipment": {
+                    "class": "cim:Equipment",
+                    "maxCount": 1
+                },
+                "cim:OperationalLimitSet.Terminal": {
+                    "class": "cim:Terminal",
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:PowerSystemResource": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:IdentifiedObject",
+            "property": {
+                "cim:PowerSystemResource.ReportingGroup": {
+                    "class": "cim:ReportingGroup"
+                }
+            }
+        },
+        "cim:BoundaryPoint": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:PowerSystemResource",
+            "property": {
+                "cim:BoundaryPoint.fromEndIsoCode": {
+                    "datatype": "xsd:string",
+                    "minCount": 1,
+                    "maxCount": 1
+                },
+                "cim:BoundaryPoint.fromEndNameTso": {
+                    "datatype": "xsd:string",
+                    "minCount": 1,
+                    "maxCount": 1
+                },
+                "cim:BoundaryPoint.toEndIsoCode": {
+                    "datatype": "xsd:string",
+                    "minCount": 1,
+                    "maxCount": 1
+                },
+                "cim:BoundaryPoint.toEndNameTso": {
+                    "datatype": "xsd:string",
+                    "minCount": 1,
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:Bay": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:EquipmentContainer",
+            "property": {
+                "cim:Bay.VoltageLevel": {
+                    "class": "cim:VoltageLevel",
+                    "minCount": 1,
+                    "maxCount": 1
+                },
+                "cim:Bay.breakerConfiguration": {
+                    "class": "cim:BreakerConfiguration",
+                    "maxCount": 1
+                },
+                "cim:Bay.busBarConfiguration": {
+                    "class": "cim:BusbarConfiguration",
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:Line": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:EquipmentContainer",
+            "property": {
+                "cim:Line.Region": {
+                    "class": "cim:SubGeographicalRegion",
+                    "minCount": 1,
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:Substation": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:EquipmentContainer",
+            "property": {
+                "cim:Substation.Region": {
+                    "class": "cim:SubGeographicalRegion",
+                    "minCount": 1,
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:VoltageLevel": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:EquipmentContainer",
+            "property": {
+                "cim:VoltageLevel.BaseVoltage": {
+                    "nodeKind": "sh:IRI",
+                    "minCount": 1,
+                    "maxCount": 1
+                },
+                "cim:VoltageLevel.Substation": {
+                    "class": "cim:Substation",
+                    "minCount": 1,
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:Equipment": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:PowerSystemResource",
+            "property": {
+                "cim:Equipment.EquipmentContainer": {
+                    "class": "cim:EquipmentContainer",
+                    "maxCount": 1
+                },
+                "cim:Equipment.aggregate": {
+                    "datatype": "xsd:boolean",
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:Switch": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:ConductingEquipment",
+            "property": {
+                "cim:Switch.normalOpen": {
+                    "datatype": "xsd:boolean",
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:ReportingGroup": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:IdentifiedObject",
+            "property": {
+                "cim:ReportingGroup.ReportingSuperGroup": {
+                    "class": "cim:ReportingSuperGroup",
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:SubGeographicalRegion": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:IdentifiedObject",
+            "property": {
+                "cim:SubGeographicalRegion.Region": {
+                    "class": "cim:GeographicalRegion",
+                    "minCount": 1,
+                    "maxCount": 1
+                },
+                "cim:SubGeographicalRegion.title": {
+                    "datatype": "xsd:string",
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:TransformerEnd": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:IdentifiedObject",
+            "property": {
+                "cim:TransformerEnd.endNumber": {
+                    "datatype": "xsd:integer",
+                    "maxCount": 1
+                },
+                "cim:TransformerEnd.Terminal": {
+                    "class": "cim:Terminal",
+                    "minCount": 1,
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:PowerTransformerEnd": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:TransformerEnd",
+            "property": {
+                "cim:PowerTransformerEnd.PowerTransformer": {
+                    "class": "cim:PowerTransformer",
+                    "minCount": 1,
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:UsagePoint": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:IdentifiedObject",
+            "property": {
+                "cim:UsagePoint.isVirtual": {
+                    "datatype": "xsd:boolean",
+                    "maxCount": 1
+                }
+            }
+        },
+        "nl:UpdateInfo": {
+            "property": {
+                "nl:UpdateInfo.date": {
+                    "datatype": "xsd:date",
+                    "minCount": 1,
+                    "maxCount": 1
+                },
+                "nl:UpdateInfo.type": {
+                    "class": "nl:UpdateInfoKind",
+                    "minCount": 1,
+                    "maxCount": 1
+                }
+            }
+        },
+        "cim:ACLineSegment": {
+            "@type": [
+                "rdfs:Class",
+                "sh:NodeShape"
+            ],
+            "subClassOf": "cim:ConductingEquipment",
+            "property": {
+                "cim:ConductingEquipment.Terminals": {
+                    "minCount": 2,
+                    "maxCount": 2
+                }
+            }
+        },
+        "cim:ActivePower": {
+            "property": {
+                "cim:ActivePower.multiplier": {
+                    "class": "cim:UnitMultiplier",
+                    "minCount": 1,
+                    "maxCount": 1
+                },
+                "cim:ActivePower.unit": {
+                    "class": "cim:UnitSymbol",
+                    "minCount": 1,
+                    "maxCount": 1
+                },
+                "cim:ActivePower.value": {
+                    "datatype": "xsd:float",
+                    "minCount": 1,
+                    "maxCount": 1
+                }
+            }
+        }
+    },
+    "enums": {
+        "cim:BreakerConfiguration": {
+            "@type": "sh:NodeShape",
+            "values": [
+                "cim:BreakerConfiguration.breakerAndAHalf",
+                "cim:BreakerConfiguration.doubleBreaker",
+                "cim:BreakerConfiguration.noBreaker",
+                "cim:BreakerConfiguration.singleBreaker"
+            ]
+        },
+        "cim:BusbarConfiguration": {
+            "@type": "sh:NodeShape",
+            "values": [
+                "cim:BusbarConfiguration.doubleBus",
+                "cim:BusbarConfiguration.mainWithTransfer",
+                "cim:BusbarConfiguration.ringBus",
+                "cim:BusbarConfiguration.singleBus"
+            ]
+        },
+        "cim:UnitMultiplier": {
+            "@type": "sh:NodeShape",
+            "values": [
+                "cim:UnitMultiplier.G",
+                "cim:UnitMultiplier.h",
+                "cim:UnitMultiplier.k",
+                "cim:UnitMultiplier.m",
+                "cim:UnitMultiplier.M",
+                "cim:UnitMultiplier.micro",
+                "cim:UnitMultiplier.none"
+            ]
+        },
+        "cim:UnitSymbol": {
+            "@type": "sh:NodeShape",
+            "values": [
+                "cim:UnitSymbol.A",
+                "cim:UnitSymbol.Ah",
+                "cim:UnitSymbol.none",
+                "cim:UnitSymbol.ohm",
+                "cim:UnitSymbol.V",
+                "cim:UnitSymbol.VA",
+                "cim:UnitSymbol.VAh",
+                "cim:UnitSymbol.VAr",
+                "cim:UnitSymbol.VArh",
+                "cim:UnitSymbol.W",
+                "cim:UnitSymbol.Wb",
+                "cim:UnitSymbol.Wh"
+            ]
+        },
+        "nl:UpdateInfoKind": {
+            "values": [
+                "nl:UpdateInfoKind.ATC"
+            ]
+        },
+        "nl:BaseVoltage": {
+            "@type": "sh:NodeShape",
+            "sh:targetClass": "cim:BaseVoltage",
+            "sh:in": [
+                "urn:uuid:98b04fac-0fe4-4e07-b384-3dfee6a6b79c",
+                "urn:uuid:b7482b2f-bcb8-46e9-99b1-e0cd09f3c205",
+                "urn:uuid:a8d1b6b0-2ca4-4cbe-baa8-deaef08488fc",
+                "urn:uuid:b6140325-2576-4bd6-8da4-1238c2328bf2",
+                "urn:uuid:8b7d8dbc-53ad-445a-b557-32633ecf1aa9",
+                "urn:uuid:45b9413e-a116-4952-8cf8-aeb4b2e53348",
+                "urn:uuid:85712eb4-804b-49f8-9fab-d94ee29152ef",
+                "urn:uuid:4ace87c9-16c7-4097-914f-d4551d7d8cd5",
+                "urn:uuid:1cefd53a-79bd-4ad4-aa9a-5a4ad0191ce2",
+                "urn:uuid:bbfd2dd8-005d-4c26-ab0d-285117d0309c",
+                "urn:uuid:d5445f84-09ac-4647-b6b2-ed81cc5ab76b",
+                "urn:uuid:b2a3e748-1772-409d-a61f-1d6da09564c9",
+                "urn:uuid:c6dd6dc7-d8b0-4beb-b78d-9e472b038ffc",
+                "urn:uuid:9289ba01-8394-4a4e-9346-ee82706babd1",
+                "urn:uuid:1d57ef25-73e5-c940-de64-61253ce02e87",
+                "urn:uuid:b8e17237e0ca4fca9e4e285b80ab30d0",
+                "urn:uuid:e50ca4bd591d4c30bd6eca3635f70516",
+                "urn:uuid:7891a026ba2c42098556665efd13ba94",
+                "urn:uuid:b88e6bde11264fea83355102cd4f182c"
+            ]
+        }
+    }
+}
