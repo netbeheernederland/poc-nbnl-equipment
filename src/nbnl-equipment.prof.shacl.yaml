@@ -16,7 +16,7 @@ description: >-
 imports:
   - deps/cim17.vocab.rdfs.jsonld
   - deps/nbnl-cim-nl.vocab.rdfs.jsonld
-  - deps/base-voltage.enum.shacl.jsonld
+  - deps/base-voltage.enum.shacl.osonld
 entailment: http://www.w3.org/ns/entailment/RDFS
 conformsTo:
   - "CIM 17"
