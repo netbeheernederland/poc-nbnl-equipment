@@ -1,0 +1,575 @@
+{
+  "@context": {
+    "linkml": "https://w3id.org/linkml/",
+    "cbs": "https://www.cbs.nl/nl-nl/onze-diensten/methoden/begrippen/",
+    "cim": "https://cim.ucaiug.io/ns#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "eu": "https://cim.ucaiug.io/ns/eu#",
+    "github": "https://github.com/",
+    "nbnl": "https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/",
+    "nl": "https://cim.ucaiug.io/ns/nl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@id": "urn:uuid:3ed60b10-4c15-47e0-b9fb-3fcadc2c1632",
+  "dcterms:title": "NBNL Object Register",
+  "dcterms:issued": {
+    "@value": "2026-10-28T00:00:00Z",
+    "@type": "xsd:dateTime"
+  },
+  "dcterms:publisher": {
+    "@id": "urn:uuid:023137af-5b53-4bb4-8687-4ea19d53cf78",
+    "dcterms:title": "Netbeheer Nederland"
+  },
+  "dcterms:conformsTo": [
+    {
+      "@id": "https://modellen.netbeheernederland.nl/object-register/1.8"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be",
+      "@type": "cim:GeographicalRegion",
+      "cim:IdentifiedObject.mRID": "3061d9bc-a20e-4b72-85b7-042c731f86be",
+      "cim:IdentifiedObject.name": "NL"
+    },
+    {
+      "@id": "urn:uuid:9720c3bf-c710-48e8-958e-7bcc249a7304",
+      "@type": "cim:SubGeographicalRegion",
+      "cim:SubGeographicalRegion.Region": {
+        "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be"
+      },
+      "cim:IdentifiedObject.mRID": "9720c3bf-c710-48e8-958e-7bcc249a7304",
+      "cim:IdentifiedObject.name": "Coteq Netbeheer B.V."
+    },
+    {
+      "@id": "urn:uuid:158a245d-79f4-4380-bf77-5f128dc3dee8",
+      "@type": "cim:SubGeographicalRegion",
+      "cim:SubGeographicalRegion.Region": {
+        "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be"
+      },
+      "cim:IdentifiedObject.mRID": "158a245d-79f4-4380-bf77-5f128dc3dee8",
+      "cim:IdentifiedObject.name": "Enexis Netbeheer B.V."
+    },
+    {
+      "@id": "urn:uuid:43da9130-5c92-4cc0-bcdb-231295386b4f",
+      "@type": "cim:SubGeographicalRegion",
+      "cim:SubGeographicalRegion.Region": {
+        "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be"
+      },
+      "cim:IdentifiedObject.mRID": "43da9130-5c92-4cc0-bcdb-231295386b4f",
+      "cim:IdentifiedObject.name": "Gasunie Transport Services B.V."
+    },
+    {
+      "@id": "urn:uuid:4f74c8e2-adb5-4815-9607-eb00fb6a0d55",
+      "@type": "cim:SubGeographicalRegion",
+      "cim:SubGeographicalRegion.Region": {
+        "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be"
+      },
+      "cim:IdentifiedObject.mRID": "4f74c8e2-adb5-4815-9607-eb00fb6a0d55",
+      "cim:IdentifiedObject.name": "Liander N.V."
+    },
+    {
+      "@id": "urn:uuid:c2f1ba6c-2429-4fc1-9d19-50bf9c1be528",
+      "@type": "cim:SubGeographicalRegion",
+      "cim:SubGeographicalRegion.Region": {
+        "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be"
+      },
+      "cim:IdentifiedObject.mRID": "c2f1ba6c-2429-4fc1-9d19-50bf9c1be528",
+      "cim:IdentifiedObject.name": "N.V. RENDO"
+    },
+    {
+      "@id": "urn:uuid:0d00cb60-dd49-4d00-a720-19a0025807f0",
+      "@type": "cim:SubGeographicalRegion",
+      "cim:SubGeographicalRegion.Region": {
+        "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be"
+      },
+      "cim:IdentifiedObject.mRID": "0d00cb60-dd49-4d00-a720-19a0025807f0",
+      "cim:IdentifiedObject.name": "Stedin Netbeheer B.V."
+    },
+    {
+      "@id": "urn:uuid:2128cb2f-9425-4cf7-9462-9fd59e06542d",
+      "@type": "cim:SubGeographicalRegion",
+      "cim:SubGeographicalRegion.Region": {
+        "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be"
+      },
+      "cim:IdentifiedObject.mRID": "2128cb2f-9425-4cf7-9462-9fd59e06542d",
+      "cim:IdentifiedObject.name": "TenneT TSO B.V."
+    },
+    {
+      "@id": "urn:uuid:21ba2c21-33a7-487d-9618-789334963e62",
+      "@type": "cim:SubGeographicalRegion",
+      "cim:SubGeographicalRegion.Region": {
+        "@id": "urn:uuid:3061d9bc-a20e-4b72-85b7-042c731f86be"
+      },
+      "cim:IdentifiedObject.mRID": "21ba2c21-33a7-487d-9618-789334963e62",
+      "cim:IdentifiedObject.name": "Westland Infra Netbeheer B.V."
+    },
+
+    {
+      "@id": "urn:uuid:98b04fac-0fe4-4e07-b384-3dfee6a6b79c",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:a6731e46-2c76-4d7e-bf91-e702989cf7f1"
+      },
+      "cim:IdentifiedObject.description": "Base voltage 0.23 kV",
+      "cim:IdentifiedObject.mRID": "98b04fac-0fe4-4e07-b384-3dfee6a6b79c",
+      "cim:IdentifiedObject.name": "AC-0-23"
+    },
+    {
+      "@id": "urn:uuid:b7482b2f-bcb8-46e9-99b1-e0cd09f3c205",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:1de33b4b-052e-45cb-acac-8e887fb8af18"
+      },
+      "cim:IdentifiedObject.description": "Base voltage defined by ENTSO-E 0.4 kV",
+      "cim:IdentifiedObject.mRID": "b7482b2f-bcb8-46e9-99b1-e0cd09f3c205",
+      "cim:IdentifiedObject.name": "AC-0-4"
+    },
+    {
+      "@id": "urn:uuid:a8d1b6b0-2ca4-4cbe-baa8-deaef08488fc",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:2226bb23-bc5d-40db-ba49-aaddfd907b0e"
+      },
+      "cim:IdentifiedObject.description": "Base voltage 0.7 kV",
+      "cim:IdentifiedObject.mRID": "a8d1b6b0-2ca4-4cbe-baa8-deaef08488fc",
+      "cim:IdentifiedObject.name": "AC-0-7"
+    },
+    {
+      "@id": "urn:uuid:b6140325-2576-4bd6-8da4-1238c2328bf2",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:d0696c98-3f6f-4aa4-a825-e9bccd828e5c"
+      },
+      "cim:IdentifiedObject.description": "Base voltage 3 kV",
+      "cim:IdentifiedObject.mRID": "b6140325-2576-4bd6-8da4-1238c2328bf2",
+      "cim:IdentifiedObject.name": "AC-3"
+    },
+    {
+      "@id": "urn:uuid:8b7d8dbc-53ad-445a-b557-32633ecf1aa9",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:ae3a024b-6977-471a-a3ce-5a3ba8e9c7c7"
+      },
+      "cim:IdentifiedObject.description": "Base voltage defined by ENTSO-E 6 kV",
+      "cim:IdentifiedObject.mRID": "8b7d8dbc-53ad-445a-b557-32633ecf1aa9",
+      "cim:IdentifiedObject.name": "AC-6"
+    },
+    {
+      "@id": "urn:uuid:45b9413e-a116-4952-8cf8-aeb4b2e53348",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:95581209-d904-488a-b3f1-015b00d15025"
+      },
+      "cim:IdentifiedObject.description": "Base voltage defined by ENTSO-E 10 kV",
+      "cim:IdentifiedObject.mRID": "45b9413e-a116-4952-8cf8-aeb4b2e53348",
+      "cim:IdentifiedObject.name": "AC-10"
+    },
+    {
+      "@id": "urn:uuid:85712eb4-804b-49f8-9fab-d94ee29152ef",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:89826745-145e-47f3-99a5-d37e8e8685bf"
+      },
+      "cim:IdentifiedObject.description": "Base voltage defined by ENTSO-E 13 kV",
+      "cim:IdentifiedObject.mRID": "85712eb4-804b-49f8-9fab-d94ee29152ef",
+      "cim:IdentifiedObject.name": "AC-13"
+    },
+    {
+      "@id": "urn:uuid:4ace87c9-16c7-4097-914f-d4551d7d8cd5",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:520cf3c3-58ef-428a-9e44-215d62a6c431"
+      },
+      "cim:IdentifiedObject.description": "Base voltage defined by ENTSO-E 20 kV",
+      "cim:IdentifiedObject.mRID": "4ace87c9-16c7-4097-914f-d4551d7d8cd5",
+      "cim:IdentifiedObject.name": "AC-20"
+    },
+    {
+      "@id": "urn:uuid:1cefd53a-79bd-4ad4-aa9a-5a4ad0191ce2",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:eca32ce0-fe8a-43b9-910b-b6927de1ea05"
+      },
+      "cim:IdentifiedObject.description": "Base voltage defined by ENTSO-E 21 kV",
+      "cim:IdentifiedObject.mRID": "1cefd53a-79bd-4ad4-aa9a-5a4ad0191ce2",
+      "cim:IdentifiedObject.name": "AC-21"
+    },
+    {
+      "@id": "urn:uuid:bbfd2dd8-005d-4c26-ab0d-285117d0309c",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:2dc424e7-5c23-4621-9617-96ef91942ce6"
+      },
+      "cim:IdentifiedObject.description": "Base voltage 23 kV",
+      "cim:IdentifiedObject.mRID": "bbfd2dd8-005d-4c26-ab0d-285117d0309c",
+      "cim:IdentifiedObject.name": "AC-23"
+    },
+    {
+      "@id": "urn:uuid:d5445f84-09ac-4647-b6b2-ed81cc5ab76b",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:5f6b3d42-e5c9-4407-a089-31289aed6697"
+      },
+      "cim:IdentifiedObject.description": "Base voltage defined by ENTSO-E 25 kV",
+      "cim:IdentifiedObject.mRID": "d5445f84-09ac-4647-b6b2-ed81cc5ab76b",
+      "cim:IdentifiedObject.name": "AC-25"
+    },
+    {
+      "@id": "urn:uuid:b2a3e748-1772-409d-a61f-1d6da09564c9",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:271a78fc-15c4-417f-b17a-1ff0ed5d327a"
+      },
+      "cim:IdentifiedObject.description": "Base voltage defined by ENTSO-E 30 kV",
+      "cim:IdentifiedObject.mRID": "b2a3e748-1772-409d-a61f-1d6da09564c9",
+      "cim:IdentifiedObject.name": "AC-30"
+    },
+    {
+      "@id": "urn:uuid:c6dd6dc7-d8b0-4beb-b78d-9e472b038ffc",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:9befc993-783d-4a1d-ab5e-a83d41985d48"
+      },
+      "cim:IdentifiedObject.description": "Base voltage defined by ENTSO-E 33 kV",
+      "cim:IdentifiedObject.mRID": "c6dd6dc7-d8b0-4beb-b78d-9e472b038ffc",
+      "cim:IdentifiedObject.name": "AC-33"
+    },
+    {
+      "@id": "urn:uuid:9289ba01-8394-4a4e-9346-ee82706babd1",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:a319e3c0-fa7d-4a96-9aa0-5edca04d2888"
+      },
+      "cim:IdentifiedObject.description": "Base voltage 50 kV",
+      "cim:IdentifiedObject.mRID": "9289ba01-8394-4a4e-9346-ee82706babd1",
+      "cim:IdentifiedObject.name": "AC-50"
+    },
+    {
+      "@id": "urn:uuid:1d57ef25-73e5-c940-de64-61253ce02e87",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:e9732c53-2871-428a-9c29-3e024bd679a2"
+      },
+      "cim:IdentifiedObject.description": "Base voltage defined by ENTSO-E 66 kV",
+      "cim:IdentifiedObject.mRID": "1d57ef25-73e5-c940-de64-61253ce02e87",
+      "cim:IdentifiedObject.name": "AC-66"
+    },
+    {
+      "@id": "urn:uuid:b8e17237e0ca4fca9e4e285b80ab30d0",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:155123d9-c7d6-493e-9e82-a451b5791550"
+      },
+      "cim:IdentifiedObject.description": "Base voltage defined by ENTSO-E 110 kV",
+      "cim:IdentifiedObject.mRID": "b8e17237e0ca4fca9e4e285b80ab30d0",
+      "cim:IdentifiedObject.name": "AC-110"
+    },
+    {
+      "@id": "urn:uuid:e50ca4bd591d4c30bd6eca3635f70516",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:a22b6bf3-33ab-4f82-89c5-0d427625f2da"
+      },
+      "cim:IdentifiedObject.description": "Base voltage defined by ENTSO-E 150 kV",
+      "cim:IdentifiedObject.mRID": "e50ca4bd591d4c30bd6eca3635f70516",
+      "cim:IdentifiedObject.name": "AC-150"
+    },
+	{
+      "@id": "urn:uuid:7891a026ba2c42098556665efd13ba94",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:48c836a3-2397-4af2-8d1f-1a9649b7e004"
+      },
+      "cim:IdentifiedObject.description": "Base voltage defined by ENTSO-E 220 kV",
+      "cim:IdentifiedObject.mRID": "7891a026ba2c42098556665efd13ba94",
+      "cim:IdentifiedObject.name": "AC-220"
+    },
+	{
+      "@id": "urn:uuid:b88e6bde11264fea83355102cd4f182c",
+      "@type": "cim:BaseVoltage",
+      "cim:BaseVoltage.nominalVoltage": {
+        "@id": "urn:uuid:e36bf986-30b7-4289-b8f0-901852d8b62b"
+      },
+      "cim:IdentifiedObject.description": "Base voltage defined by ENTSO-E 380 kV",
+      "cim:IdentifiedObject.mRID": "b88e6bde11264fea83355102cd4f182c",
+      "cim:IdentifiedObject.name": "AC-380"
+    },
+    {
+      "@id": "urn:uuid:a6731e46-2c76-4d7e-bf91-e702989cf7f1",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 0.23,
+        "@type": "xsd:float"
+      }
+    },
+    {
+      "@id": "urn:uuid:1de33b4b-052e-45cb-acac-8e887fb8af18",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 0.4,
+        "@type": "xsd:float"
+      }
+    },
+    {
+      "@id": "urn:uuid:2226bb23-bc5d-40db-ba49-aaddfd907b0e",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 0.7,
+        "@type": "xsd:float"
+      }
+    },
+    {
+      "@id": "urn:uuid:d0696c98-3f6f-4aa4-a825-e9bccd828e5c",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 3.0,
+        "@type": "xsd:float"
+      }
+    },
+    {
+      "@id": "urn:uuid:ae3a024b-6977-471a-a3ce-5a3ba8e9c7c7",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 6.0,
+        "@type": "xsd:float"
+      }
+    },
+    {
+      "@id": "urn:uuid:95581209-d904-488a-b3f1-015b00d15025",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 10.0,
+        "@type": "xsd:float"
+      }
+    },
+    {
+      "@id": "urn:uuid:89826745-145e-47f3-99a5-d37e8e8685bf",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 13.0,
+        "@type": "xsd:float"
+      }
+    },
+    {
+      "@id": "urn:uuid:520cf3c3-58ef-428a-9e44-215d62a6c431",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 20.0,
+        "@type": "xsd:float"
+      }
+    },
+    {
+      "@id": "urn:uuid:eca32ce0-fe8a-43b9-910b-b6927de1ea05",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 21.0,
+        "@type": "xsd:float"
+      }
+    },
+    {
+      "@id": "urn:uuid:2dc424e7-5c23-4621-9617-96ef91942ce6",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 23.0,
+        "@type": "xsd:float"
+      }
+    },
+    {
+      "@id": "urn:uuid:5f6b3d42-e5c9-4407-a089-31289aed6697",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 25.0,
+        "@type": "xsd:float"
+      }
+    },
+    {
+      "@id": "urn:uuid:271a78fc-15c4-417f-b17a-1ff0ed5d327a",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 30.0,
+        "@type": "xsd:float"
+      }
+    },
+    {
+      "@id": "urn:uuid:9befc993-783d-4a1d-ab5e-a83d41985d48",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 33.0,
+        "@type": "xsd:float"
+      }
+    },
+    {
+      "@id": "urn:uuid:a319e3c0-fa7d-4a96-9aa0-5edca04d2888",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 50.0,
+        "@type": "xsd:float"
+      }
+    },
+    {
+      "@id": "urn:uuid:e9732c53-2871-428a-9c29-3e024bd679a2",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 66.0,
+        "@type": "xsd:float"
+      }
+    },
+    {
+      "@id": "urn:uuid:155123d9-c7d6-493e-9e82-a451b5791550",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 110.0,
+        "@type": "xsd:float"
+      }
+    },
+    {
+      "@id": "urn:uuid:a22b6bf3-33ab-4f82-89c5-0d427625f2da",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 150.0,
+        "@type": "xsd:float"
+      }
+    },
+    {
+      "@id": "urn:uuid:48c836a3-2397-4af2-8d1f-1a9649b7e004",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 220.0,
+        "@type": "xsd:float"
+      }
+    },
+    {
+      "@id": "urn:uuid:e36bf986-30b7-4289-b8f0-901852d8b62b",
+      "@type": "cim:Voltage",
+      "cim:Voltage.multiplier": {
+        "@id": "cim:UnitMultiplier.k"
+      },
+      "cim:Voltage.unit": {
+        "@id": "cim:UnitSymbol.V"
+      },
+      "cim:Voltage.value": {
+        "@value": 380.0,
+        "@type": "xsd:float"
+      }
+    },
+    {
+      "@id": "urn:uuid:8dabcb33-6555-4ad8-a7ba-f1fb162ae98c",
+      "@type": "cim:CoordinateSystem",
+      "cim:CoordinateSystem.crsUrn": {
+         "@id": "urn:ogc:def:crs:EPSG::4.3.2.6"
+      },
+      "cim:IdentifiedObject.mRID": "8dabcb33-6555-4ad8-a7ba-f1fb162ae98c",
+      "cim:IdentifiedObject.name": "WGS84"
+    }
+  ]
+}

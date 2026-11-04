@@ -1,0 +1,167 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "http://www.w3.org/ns/shacl#",
+    "adms": "http://www.w3.org/ns/adms#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "prof": "http://www.w3.org/ns/dx/prof/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "role": "http://www.w3.org/ns/dx/prof/role/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "nl": "https://cim.ucaiug.io/ns/nl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "v": "http://www.w3.org/2006/vcard/ns#",
+    "description": "dcterms:description",
+    "conformsTo": "dcterms:conformsTo",
+    "issued": {
+      "@id": "dcterms:issued",
+      "@type": "xsd:date"
+    },
+    "title": "dcterms:title",
+    "landingPage": {
+      "@id": "dcat:landingPage",
+      "@type": "@id"
+    },
+    "contactPoint": {
+      "@id": "dcat:contactPoint",
+      "@context": {
+        "fullName": "v:fn",
+        "email": "v:hasEmail"
+      }
+    },
+    "publisher": {
+      "@id": "dcterms:publisher",
+      "@type": "@id",
+      "@context": {
+        "name": "foaf:name"
+      }
+    },
+    "language": "dcterms:language",
+    "type": {
+      "@id": "dcterms:type",
+      "@type": "@id",
+      "@context": {
+        "@base": "https://ucaiug.io/prof-ap-cim/asset-type"
+      }
+    },
+    "status": {
+      "@id": "adms:status",
+      "@type": "@id",
+      "@context": {
+        "@base": "https://ucaiug.io/prof-ap-cim/status"
+      }
+    },
+    "mediaType": "dcterms:mediaType",
+    "downloadURL": {
+      "@id": "dcat:downloadURL",
+      "@type": "xsd:anyURI"
+    },
+    "accessURL": {
+      "@id": "dcat:accessURL",
+      "@type": "xsd:anyURI"
+    },
+    "distribution": {
+      "@id": "dcat:distribution",
+      "@type": "@id",
+      "@context": {
+        "representationTechnique": "adms:representationTechnique"
+      }
+    },
+    "includedAsset": {
+      "@id": "adms:includedAsset",
+      "@type": "@id"
+    },
+    "classes": {
+      "@container": "@id",
+      "@id": "nl:hasClassShape"
+    },
+    "rules": {
+      "@container": "@id",
+      "@id": "nl:hasRuleShape"
+    },
+    "closed": {
+      "@type": "xsd:boolean"
+    },
+    "datatype": {
+      "@type": "@id"
+    },
+    "targetClass": {
+      "@type": "@id"
+    },
+    "severity": {
+      "@type": "@id"
+    },
+    "class": {
+      "@type": "@id"
+    },
+    "enums": {
+      "@container": "@id",
+      "@id": "nl:hasEnumerationShape",
+      "@context": {
+        "value": {
+          "@id": "in",
+          "@container": "@list",
+          "@type": "@id"
+        },
+        "name": {
+          "@id": "sh:name",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    "imports": {
+      "@id": "owl:imports",
+      "@type": "@id"
+    },
+    "in": {
+      "@container": "@list",
+      "@type": "@id"
+    },
+    "name": {
+      "@id": "rdfs:label"
+    },
+    "node": {
+      "@type": "@id"
+    },
+    "nodeKind": {
+      "@type": "@id"
+    },
+    "or": {
+      "@container": "@list",
+      "@type": "@id"
+    },
+    "path": {
+      "@type": "@id"
+    },
+    "property": {
+      "@container": "@index",
+      "@context": {
+        "description": {
+          "@id": "sh:description",
+          "@type": "xsd:string"
+        },
+        "name": {
+          "@id": "sh:name",
+          "@type": "xsd:string"
+        }
+      },
+      "@index": "path"
+    },
+    "seeAlso": {
+      "@id": "rdfs:seeAlso"
+    },
+    "isVersionOf": {
+      "@id": "dcterms:isVersionOf",
+      "@type": "@id"
+    },
+    "version": {
+      "@id": "dcat:version",
+      "@type": "xsd:string"
+    }
+  }
+}

@@ -1,0 +1,373 @@
+'@context':
+  '@version': 1.1
+  '@import': http://localhost:8000/remote/nbnl-prof.context.jsonld
+  cim: https://cim.ucaiug.io/ns#
+'@id': https://modellen.netbeheernederland.nl/nbnl-equipment/3.0
+entailment: http://www.w3.org/ns/entailment/RDFS
+isVersionOf: https://modellen.netbeheernederland.nl/nbnl-equipment
+version: '3.0'
+'@type':
+  - prof:Profile
+  - sh:ShapesGraph
+  - owl:Ontology
+imports:
+  - remote/nbnl-prof.owl.jsonld
+  - nbnl-equipment.rdfs.jsonld  # TODO: Should be provided by data graph (or indirectly by some ontology)!
+  - remote/base-voltage.shacl.jsonld
+title: NBNL Equipment Profile
+description: >-
+  CIM profile for modelling equipment.
+conformsTo:
+  - https://cim17.org
+  # - https://eu-dcat-ap?
+landingPage: https://modellen.netbeheernederland.nl/nbnl-equipment/3.0
+issued: 2026-09-11
+contactPoint:
+  fullName: Bart Kleijngeld
+  email: bart.kleijngeld@alliander.com
+publisher:
+  name: Netbeheer Nederland
+language: EN  #TODO
+type: application-profile  # TODO: Use a nested context with `@vocab` to allow this.
+distribution:
+  - title: Profile representation in RDF serialized as JSON-LD
+    representationTechnique: shacl
+    mediaType: application/ld+json
+    downloadURL: https://modellen.netbeheernederland.nl/nbnl-equipment/3.0/nbnl-equipment-3.0.prof.jsonld
+  - title: Profile representation in RDF serialized as YAML-LD
+    representationTechnique: shacl
+    mediaType: application/ld+yaml
+    downloadURL: https://modellen.netbeheernederland.nl/nbnl-equipment/3.0/nbnl-equipment-3.0.prof.yamlld
+  - title: Profile representation in HTML
+    representationTechnique: html
+    mediaType: text/html
+    accessURL: https://modellen.netbeheernederland.nl/nbnl-equipment/3.0/index.html
+includedAsset:
+  # - '@id': https://modellen.netbeheernederland.nl/nbnl-equipment/3.0  # TODO: Think whether this self-reference is necessary (especially since SHACL Profiling 1.2 prescribes this) or confusing.
+  #   type: constraints
+  - '@id': https://modellen.netbeheernederland.nl/nbnl-equipment/3.0#vocabulary
+    title: Profile vocabulary
+    type: vocabulary
+    distribution:
+      - title: Profile vocabulary representation in RDF serialized as JSON-LD
+        representationTechnique: rdfs
+        mediaType: application/ld+json
+        downloadURL: https://modellen.netbeheernederland.nl/nbnl-equipment/3.0/nbnl-equipment-3.0.rdfs.jsonld
+      - title: Profile vocabulary representation in RDF serialized as YAML-LD
+        representationTechnique: rdfs
+        mediaType: application/ld+yaml
+        downloadURL: https://modellen.netbeheernederland.nl/nbnl-equipment/3.0/nbnl-equipment-3.0.rdfs.yamlld
+  - '@id': https://modellen.netbeheernederland.nl/nbnl-equipment/3.0#ctx
+    title: Profile JSON-LD context
+    type: jsonld-context
+    distribution:
+      - title: Profile JSON-LD context file serialized as JSON-LD
+        representationTechnique: jsonld
+        mediaType: application/ld+json
+        downloadURL: https://modellen.netbeheernederland.nl/nbnl-equipment/3.0/nbnl-equipment-3.0.ctx.jsonld
+      - title: Profile JSON-LD context file serialized as YAML-LD
+        representationTechnique: jsonld
+        mediaType: application/ld+yaml
+        downloadURL: https://modellen.netbeheernederland.nl/nbnl-equipment/3.0/nbnl-equipment-3.0.ctx.yamlld
+classes:
+  cim:IdentifiedObject:
+    property:
+      cim:IdentifiedObject.description:
+        datatype: xsd:string
+        maxCount: 1
+      nl:IdentifiedObject.europeanArticleNumberEAN:
+        datatype: xsd:string
+        maxCount: 1
+      cim:IdentifiedObject.mRID:
+        datatype: xsd:string
+        minCount: 1
+        maxCount: 1
+      cim:IdentifiedObject.name:
+        datatype: xsd:string
+        maxCount: 1
+  cim:Terminal:
+    property:
+      cim:Terminal.ConductingEquipment:
+        class: cim:ConductingEquipment
+        minCount: 1
+        maxCount: 1
+      cim:Terminal.ConnectivityNode:
+        class: cim:ConnectivityNode
+        maxCount: 1
+  cim:BaseVoltage:
+    property:
+      cim:BaseVoltage.nominalVoltage:
+        class: cim:Voltage
+        minCount: 1
+        maxCount: 1
+  cim:ConnectivityNode:
+    property:
+      cim:ConnectivityNode.BoundaryPoint:
+        class: cim:BoundaryPoint
+        maxCount: 1
+      cim:ConnectivityNode.ConnectivityNodeContainer:
+        class: cim:ConnectivityNodeContainer
+        minCount: 1
+        maxCount: 1
+  cim:Contingency:
+    property:
+      cim:Contingency.mustStudy:
+        datatype: xsd:boolean
+        maxCount: 1
+  cim:ContingencyElement:
+    property:
+      cim:ContingencyElement.Contingency:
+        class: cim:Contingency
+        minCount: 1
+        maxCount: 1
+  cim:ContingencyEquipment:
+    property:
+      cim:ContingencyEquipment.Equipment:
+        class: cim:Equipment
+        minCount: 1
+        maxCount: 1
+  cim:EquipmentLimitSeriesComponent:
+    property:
+      cim:EquipmentLimitSeriesComponent.Equipment:
+        class: cim:Equipment
+        minCount: 1
+        maxCount: 1
+      cim:EquipmentLimitSeriesComponent.SeriesEquipmentDependentLimit:
+        class: cim:SeriesEquipmentDependentLimit
+        minCount: 1
+        maxCount: 1
+      cim:EquipmentLimitSeriesComponent.Terminal:
+        class: cim:Terminal
+        maxCount: 1
+  cim:OperationalLimit:
+    property:
+      cim:OperationalLimit.LimitDependencyModel:
+        class: cim:SeriesEquipmentDependentLimit
+      cim:OperationalLimit.OperationalLimitSet:
+        class: cim:OperationalLimitSet
+        maxCount: 1
+      cim:OperationalLimit.positiveFlowIn:
+        datatype: xsd:boolean
+        maxCount: 1
+  cim:ActivePowerLimit:
+    property:
+      cim:ActivePowerLimit.value:
+        class: cim:ActivePower
+        minCount: 1
+        maxCount: 1
+  cim:OperationalLimitSet:
+    property:
+      cim:OperationalLimitSet.Equipment:
+        class: cim:Equipment
+        maxCount: 1
+      cim:OperationalLimitSet.Terminal:
+        class: cim:Terminal
+        maxCount: 1
+  cim:PowerSystemResource:
+    property:
+      cim:PowerSystemResource.ReportingGroup:
+        class: cim:ReportingGroup
+  cim:BoundaryPoint:
+    property:
+      cim:BoundaryPoint.fromEndIsoCode:
+        datatype: xsd:string
+        minCount: 1
+        maxCount: 1
+      cim:BoundaryPoint.fromEndNameTso:
+        datatype: xsd:string
+        minCount: 1
+        maxCount: 1
+      cim:BoundaryPoint.toEndIsoCode:
+        datatype: xsd:string
+        minCount: 1
+        maxCount: 1
+      cim:BoundaryPoint.toEndNameTso:
+        datatype: xsd:string
+        minCount: 1
+        maxCount: 1
+  cim:Bay:
+    property:
+      cim:Bay.VoltageLevel:
+        class: cim:VoltageLevel
+        minCount: 1
+        maxCount: 1
+      cim:Bay.breakerConfiguration:
+        class: cim:BreakerConfiguration
+        maxCount: 1
+      cim:Bay.busBarConfiguration:
+        class: cim:BusbarConfiguration
+        maxCount: 1
+  cim:Line:
+    property:
+      cim:Line.Region:
+        class: cim:SubGeographicalRegion
+        minCount: 1
+        maxCount: 1
+  cim:Substation:
+    property:
+      cim:Substation.Region:
+        class: cim:SubGeographicalRegion
+        minCount: 1
+        maxCount: 1
+  cim:VoltageLevel:
+    property:
+      cim:VoltageLevel.BaseVoltage:
+        # class: cim:BaseVoltage
+        nodeKind: sh:IRI
+        minCount: 1
+        maxCount: 1
+      cim:VoltageLevel.Substation:
+        class: cim:Substation
+        minCount: 1
+        maxCount: 1
+  cim:Equipment:
+    property:
+      cim:Equipment.EquipmentContainer:
+        class: cim:EquipmentContainer
+        maxCount: 1
+      cim:Equipment.aggregate:
+        datatype: xsd:boolean
+        maxCount: 1
+  cim:Switch:
+    property:
+      cim:Switch.normalOpen:
+        datatype: xsd:boolean
+        maxCount: 1
+  cim:ReportingGroup:
+    property:
+      cim:ReportingGroup.ReportingSuperGroup:
+        class: cim:ReportingSuperGroup
+        maxCount: 1
+  cim:SubGeographicalRegion:
+    property:
+      cim:SubGeographicalRegion.Region:
+        class: cim:GeographicalRegion
+        minCount: 1
+        maxCount: 1
+      cim:SubGeographicalRegion.title:
+        datatype: xsd:string
+        maxCount: 1
+  cim:TransformerEnd:
+    property:
+      cim:TransformerEnd.endNumber:
+        datatype: xsd:integer
+        maxCount: 1
+      cim:TransformerEnd.Terminal:
+        class: cim:Terminal
+        minCount: 1
+        maxCount: 1
+  cim:PowerTransformerEnd:
+    property:
+      cim:PowerTransformerEnd.PowerTransformer:
+        class: cim:PowerTransformer
+        minCount: 1
+        maxCount: 1
+  cim:UsagePoint:
+    property:
+      cim:UsagePoint.Equipments:
+        class: cim:EnergyConsumer
+    property:
+      cim:UsagePoint.isVirtual:
+        datatype: xsd:boolean
+        maxCount: 1
+  nl:UpdateInfo:
+    property:
+      nl:UpdateInfo.date:
+        datatype: xsd:date
+        minCount: 1
+        maxCount: 1
+      nl:UpdateInfo.type:
+        class: nl:UpdateInfoKind
+        minCount: 1
+        maxCount: 1
+  cim:ACLineSegment:
+    property:
+      cim:ConductingEquipment.Terminals:
+        minCount: 2
+        maxCount: 2
+  cim:ActivePower:
+    property:
+      cim:ActivePower.multiplier:
+        class: cim:UnitMultiplier
+        minCount: 1
+        maxCount: 1
+      cim:ActivePower.unit:
+        class: cim:UnitSymbol
+        minCount: 1
+        maxCount: 1
+      cim:ActivePower.value:
+        datatype: xsd:float
+        minCount: 1
+        maxCount: 1
+enums:
+  cim:BreakerConfiguration:
+    values:
+      - cim:BreakerConfiguration.breakerAndAHalf
+      - cim:BreakerConfiguration.doubleBreaker
+      - cim:BreakerConfiguration.noBreaker
+      - cim:BreakerConfiguration.singleBreaker
+  cim:BusbarConfiguration:
+    values:
+      - cim:BusbarConfiguration.doubleBus
+      - cim:BusbarConfiguration.mainWithTransfer
+      - cim:BusbarConfiguration.ringBus
+      - cim:BusbarConfiguration.singleBus
+  cim:UnitMultiplier:
+    values:
+      - cim:UnitMultiplier.G
+      - cim:UnitMultiplier.h
+      - cim:UnitMultiplier.k
+      - cim:UnitMultiplier.m
+      - cim:UnitMultiplier.M
+      - cim:UnitMultiplier.micro
+      - cim:UnitMultiplier.none
+  cim:UnitSymbol:
+    values:
+      - cim:UnitSymbol.A
+      - cim:UnitSymbol.Ah
+      - cim:UnitSymbol.none
+      - cim:UnitSymbol.ohm
+      - cim:UnitSymbol.V
+      - cim:UnitSymbol.VA
+      - cim:UnitSymbol.VAh
+      - cim:UnitSymbol.VAr
+      - cim:UnitSymbol.VArh
+      - cim:UnitSymbol.W
+      - cim:UnitSymbol.Wb
+      - cim:UnitSymbol.Wh
+  nl:UpdateInfoKind:
+    values:
+      - nl:UpdateInfoKind.ATC
+rules:
+  ConductingEquipment-twoTerminalsShape:
+    targetClass: cim:ConductingEquipment
+    description: Terminal-s of the two sides of a two-terminal ConductingEquipment (or any of its subclasses) shall not be connected to the same ConnectivityNode.
+    severity: sh:Violation
+    sparql:
+      # prefixes: https://cim.ucaiug.io/cimprof#prefixes
+      message: >-
+        Terminal-s of a two-terminal ConductingEquipment (or any of its subclasses) connect to the same ConnectivityNode.
+      select: >-
+        PREFIX cim: <https://cim.ucaiug.io/ns#>
+
+        SELECT $this ?value WHERE {
+          ?term1 cim:Terminal.ConductingEquipment $this .
+          ?term2 cim:Terminal.ConductingEquipment $this .
+
+          ?term1 cim:ACDCTerminal.sequenceNumber 1 .
+          ?term2 cim:ACDCTerminal.sequenceNumber 2 .
+
+          ?term1 cim:Terminal.ConnectivityNode ?cn1 .
+          ?term2 cim:Terminal.ConnectivityNode ?cn2 .
+          FILTER (?cn1 = ?cn2) .
+        }
+  triviallyWrong:
+    targetClass: dcat:Dataset
+    sparql:
+      message: >-
+        Hello world!
+      select: >-
+        SELECT $this
+        WHERE {
+            BIND(true AS ?failure)
+        }
