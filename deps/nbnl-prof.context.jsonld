@@ -116,7 +116,9 @@
     },
     "imports": {
       "@id": "owl:imports",
-      "@type": "@id"
+      "@type": "@id",
+      "@container": "@index",
+      "@index": "dcterms:type"
     },
     "in": {
       "@container": "@list",

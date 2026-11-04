@@ -14,9 +14,14 @@ title: NBNL Equipment Profile
 description: >-
   CIM profile for modelling equipment.
 imports:
-  - deps/cim17.vocab.rdfs.jsonld
-  - deps/nbnl-cim-nl.vocab.rdfs.jsonld
-  - deps/base-voltage.enum.shacl.osonld
+  vocabulary:
+    - '@id': deps/cim17.vocab.rdfs.jsonld
+      title: CIM 17 Canonical vocabulary
+    - '@id': deps/nbnl-cim-nl.vocab.rdfs.jsonld
+      title: NBNL CIM NL vocabulary
+  constraints:
+    - '@id': deps/base-voltage.enum.shacl.jsonld
+      title: Base voltage enumeration
 entailment: http://www.w3.org/ns/entailment/RDFS
 conformsTo:
   - "CIM 17"
